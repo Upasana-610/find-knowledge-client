@@ -32,6 +32,9 @@ const TeacherProfileModalContent = ({ teacherProfile }) => {
       <p className="mb-2">
         <strong>Category:</strong> {category.category}
       </p>
+      <p className="text-gray-700 text-base mb-2" style={{ fontSize: "14px" }}>
+        <strong>Email:</strong> {teacherprofileId.email}
+      </p>
       <p className="mb-2">
         <strong>Subcategory:</strong>{" "}
         {category.subcategories.map((sub) => {

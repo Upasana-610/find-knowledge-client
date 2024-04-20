@@ -40,7 +40,7 @@ export const fetchAllTeacherProfiles = async () => {
     const result = await axios.get(`${BASE_URL}/api/v1/teacherprofile/getAll`);
 
     // Map over the data and perform asynchronous operations
-    // console.log(result.data.data.data);
+    console.log(result.data.data.data);
     const processedData = await Promise.all(
       result.data.data.data.map(async (doc) => {
         var subcategories = doc.category ? doc.category.subcategories : [];
@@ -51,7 +51,7 @@ export const fetchAllTeacherProfiles = async () => {
         // console.log(filteredSubcategories);
         if (filteredSubcategories.length != 0)
           subcategory = filteredSubcategories[0].Subcategory;
-
+        console.log(doc);
         // Modify the document properties
         doc.category = doc.category.category;
         doc.subcategory = subcategory;
@@ -60,7 +60,7 @@ export const fetchAllTeacherProfiles = async () => {
       })
     );
 
-    // console.log(processedData);
+    console.log(processedData);
 
     return processedData;
   } catch (err) {
@@ -85,6 +85,7 @@ export const getStudentsTeacherProfile = async (id) => {
 export const createTeacherProfile = async ({
   teacherId,
   username,
+  email,
   category,
   subcategory,
   daysAvailable,
@@ -97,6 +98,7 @@ export const createTeacherProfile = async ({
       data: {
         teacherId,
         username,
+        email,
         category,
         subcategory,
         daysAvailable,
@@ -104,12 +106,8 @@ export const createTeacherProfile = async ({
       },
     });
     console.log(res);
-    // if (res.data.status === "success") {
-    //   showAlert("success", "Logged in successfully!", 2);
+    showAlert("success", "Profile Created Succesfully", 2);
 
-    //   localStorage.setItem("jwt", res.data.token);
-    //   return res.data.data.user;
-    // }
     return true;
   } catch (err) {
     showAlert("error", "Username Already Taken", 2);

@@ -7,11 +7,12 @@ import Layout from "./Layout/Layout";
 
 const CreateTeacherProfileForm = () => {
   let dispatch = useDispatch();
-  const { _id } = useSelector((state) =>
+  const { _id, email } = useSelector((state) =>
     state.user.user ? state.user.user : { _id: "" }
   );
   const [formData, setFormData] = useState({
     teacherId: _id,
+    email: email,
     username: "",
     category: "",
     subcategory: "",

@@ -31,6 +31,9 @@ const TeacherProfileModalContent = ({ teacherProfile }) => {
       <p className="mb-2">
         <strong>Username:</strong> {username}
       </p>
+      <p className="text-gray-700 text-base mb-2" style={{ fontSize: "14px" }}>
+        <strong>Email:</strong> {teacherprofileId.email}{" "}
+      </p>
       <p className="mb-2">
         <strong>Category:</strong> {category.category}
       </p>
@@ -166,7 +169,7 @@ const PaginationBar = ({ currentPage, totalPages, paginate }) => {
     <nav
       className="w-full bg-white"
       aria-label="Pagination"
-      style={{ marginTop: "50px" }}
+      style={{ marginTop: "50px", marginBottom: "100px" }}
     >
       <ul className="flex justify-center">
         {pageNumbers.map((number) => (

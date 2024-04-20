@@ -168,6 +168,12 @@ const TeacherProfileListItem = ({ teacherProfile, onOpenModal }) => {
             className="text-gray-700 text-base mb-2"
             style={{ fontSize: "14px" }}
           >
+            Email: <span className="ml-2">{teacherProfile.email}</span>
+          </p>
+          <p
+            className="text-gray-700 text-base mb-2"
+            style={{ fontSize: "14px" }}
+          >
             Category: <span className="ml-2">{teacherProfile.category}</span>
           </p>
           <p
@@ -200,9 +206,9 @@ const PaginationBar = ({ currentPage, totalPages, paginate }) => {
 
   return (
     <nav
-      className="w-full bg-white"
+      className="w-full bg-white "
       aria-label="Pagination"
-      style={{ marginTop: "50px" }}
+      style={{ marginTop: "50px", marginBottom: "100px" }}
     >
       <ul className="flex justify-center">
         {pageNumbers.map((number) => (
